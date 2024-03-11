@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+* {
+    font-family: "Space Grotesk";
+    color: white; cursor: default;
+    &::selection {background: transparent;}
+}
+
+body {
+    margin: 0; padding: 0;
+    background: url(./assets/background.webp);
+    background-size: 100vw 100vh; overflow-x: hidden;
+}
+
+body #centered-box {
+    width: fit-content; height: fit-content;
+    left: 50%; top: 50%; position: absolute;
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+}
+
+h1 { font-size: 50pt;
+} h2 { font-size: 16pt; }
+
+button {
+    height: 50px; width: 50px; margin: 5px;
+    border-radius: 100%; backdrop-filter: blur(10px);
+    border: 1px rgba($color: white, $alpha: 0.3) solid;
+    background-color: rgba($color: white, $alpha: 0.1);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    transition: all 0.1s ease; cursor: pointer;
+    &#github_link {
+        background-image: url(./assets/github.svg);
+        background-size: 35px; background-repeat: no-repeat;
+        background-position: 7px 7px;
+    }
+    &#discord_link {
+        background-image: url(./assets/discord.svg);
+        background-size: 30px; background-repeat: no-repeat;
+        background-position: 9px 9px;
+    }
+    &#about_me_link {
+        background-image: url(./assets/about_me.svg);
+        background-size: 30px; background-repeat: no-repeat;
+        background-position: 9px 9px;
+    }
+    &:hover { 
+        translate: 0 -5px; scale: 110%;
+        filter: brightness(150%);
+    }  
+}
+
+#tooltip {
+    position: fixed; padding: 10px; top: 100vh; font-size: 10pt;
+    background-color: rgba($color: white, $alpha: 0.1);
+    border: 1px solid rgba($color: white, $alpha: 0.3);
+    opacity: 0%; transition: all 0.1s ease; left: 100vw;
+    backdrop-filter: blur(20px); border-radius: 0.3pc;
+}
+
+#tooltip.visible {
+    opacity: 100%; scale: 101%;
+    z-index: 2;
+}

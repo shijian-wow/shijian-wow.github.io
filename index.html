@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Shijian's webpage</title>
+</head>
+<body>
+    <div style="position: absolute; top: 0; left: 0; height: 100vh;
+    width: 100vw; background-color: rgba(0,0,0, 0.6);
+    backdrop-filter:hue-rotate(320deg) blur(20px);"></div>
+    <div id="tooltip"></div>
+    <div id="centered-box">
+        <h1 style="background: -webkit-linear-gradient(#7baeff, white);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+        Shijian</h1> <h2 style="margin-top: -40px; font-weight:400;">
+            Developer with many skills.</h2>
+        <button id="github_link"></button>
+        <button id="discord_link"></button>
+        <button id="about_me_link"></button>
+    </div>
+</body>
+<script>
+    let github_button = document.getElementById('github_link');
+    let discord_button = document.getElementById('discord_link');
+    let about_me_button = document.getElementById('about_me_link');
+    let tooltip = document.getElementById('tooltip');
+
+    var timeout = undefined;
+
+    github_button.addEventListener('click', () => {
+        window.open('https:\/\/github.com/shijian-wow/shijian-wow.github.io', '_blank');
+    });
+
+    discord_button.addEventListener('click', () => {
+        window.open('https:\/\/discord.com/users/923851680804663297', '_blank');
+    });
+
+    about_me_button.addEventListener('click', () => {
+        window.open('https:\/\/github.com/shijian-wow', '_blank');
+    });
+
+    github_button.addEventListener('mouseover', (e) => {
+        timeout = setTimeout(() => {
+            tooltip.className = 'visible';
+            tooltip.style.left = e.clientX + 10 + 'px';
+            tooltip.style.top = e.clientY + 10 + 'px';
+            tooltip.innerHTML = 'Webpage repo';
+        }, 200);
+    });
+
+    github_button.addEventListener('mouseleave', (e) => {
+        tooltip.className = ''; clearTimeout(timeout);
+    });
+
+    discord_button.addEventListener('mouseover', (e) => {
+        timeout = setTimeout(() => {
+            tooltip.className = 'visible';
+            tooltip.style.left = e.clientX + 10 + 'px';
+            tooltip.style.top = e.clientY + 10 + 'px';
+            tooltip.innerHTML = 'Discord profile';
+        }, 200);
+    });
+
+    discord_button.addEventListener('mouseleave', (e) => {
+        tooltip.className = ''; clearTimeout(timeout);
+    });
+
+    about_me_button.addEventListener('mouseover', (e) => {
+        timeout = setTimeout(() => {
+            tooltip.className = 'visible';
+            tooltip.style.left = e.clientX + 10 + 'px';
+            tooltip.style.top = e.clientY + 10 + 'px';
+            tooltip.innerHTML = 'About me (Github profile)';
+        }, 200);
+    });
+
+    about_me_button.addEventListener('mouseleave', (e) => {
+        tooltip.className = ''; clearTimeout(timeout);
+    });
+</script>
+</html>
